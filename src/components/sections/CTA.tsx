@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Container from "../ui/Container";
+import Link from "next/link";
 
 export default function CTA() {
   return (
@@ -169,7 +170,8 @@ export default function CTA() {
 
             {/* Services Button */}
 
-            <button
+            <Link
+            href="/#services"
               className="
                 w-full
                 max-w-[340px]
@@ -199,7 +201,7 @@ export default function CTA() {
               "
             >
               EXPLORE OUR SERVICES
-            </button>
+            </Link>
           </motion.div>
         </div>
       </Container>

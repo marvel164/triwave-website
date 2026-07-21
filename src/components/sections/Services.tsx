@@ -10,7 +10,7 @@ export default function Services() {
     <section
       id="services"
       className="
-        bg-white
+        bg-[#e7f6f3]
         py-16
         sm:py-20
         md:py-24

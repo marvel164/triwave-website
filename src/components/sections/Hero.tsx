@@ -4,10 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import Container from "../ui/Container";
+import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="bg-[#F6FBFB] pt-44 pb-16">
+    <section className="bg-[#e7f6f3] pt-44 pb-16">
       <Container>
         <div className="hidden lg:grid grid-cols-2 gap-16">
           {/* ================= LEFT ================= */}
@@ -42,7 +43,8 @@ export default function Hero() {
             </motion.h1>
 
             <div className="mt-14 flex gap-5">
-              <motion.button
+              <motion.a
+                href="mailto:info@triwavedigital.net"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{
@@ -55,23 +57,31 @@ export default function Hero() {
                   ease: "easeOut",
                 }}
                 className="
-                  h-[58px]
-                  rounded-xl
-                  bg-[#00796B]
-                  px-10
-                  font-medium
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:bg-[#00685C]
-                  hover:shadow-xl
-                "
+    flex
+    h-[58px]
+    items-center
+    justify-center
+
+    rounded-xl
+    bg-[#00796B]
+
+    px-10
+
+    font-medium
+    text-white
+
+    transition-all
+    duration-300
+
+    hover:-translate-y-1
+    hover:bg-[#00685C]
+    hover:shadow-xl
+  "
               >
                 Contact Us
-              </motion.button>
+              </motion.a>
 
-              <motion.button
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{
@@ -83,23 +93,37 @@ export default function Hero() {
                   delay: 0.35,
                   ease: "easeOut",
                 }}
-                className="
-                  h-[58px]
-                  rounded-xl
-                  border
-                  border-[#D8D8D8]
-                  bg-white
-                  px-10
-                  font-medium
-                  text-[#042C2C]
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:shadow-lg
-                "
               >
-                Explore Our Services
-              </motion.button>
+                <Link
+                  href="#services"
+                  className="
+      flex
+      h-[58px]
+      items-center
+      justify-center
+
+      rounded-xl
+
+      border
+      border-[#D8D8D8]
+
+      bg-white
+
+      px-10
+
+      font-medium
+      text-[#042C2C]
+
+      transition-all
+      duration-300
+
+      hover:-translate-y-1
+      hover:shadow-lg
+    "
+                >
+                  Explore Our Services
+                </Link>
+              </motion.div>
             </div>
           </div>
 
@@ -136,28 +160,27 @@ export default function Hero() {
 
         {/* ================= MOBILE HERO CONTENT ================= */}
 
-<div className="lg:hidden flex flex-col items-center text-center">
+        <div className="lg:hidden flex flex-col items-center text-center">
+          {/* Heading */}
 
-  {/* Heading */}
-
-  <motion.h1
-    initial={{
-      opacity: 0,
-      y: 40,
-    }}
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-    viewport={{
-      once: false,
-      amount: 0.25,
-    }}
-    transition={{
-      duration: 0.8,
-      ease: "easeOut",
-    }}
-    className="
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 40,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: false,
+              amount: 0.25,
+            }}
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+            }}
+            className="
       mx-auto
       max-w-[360px]
 
@@ -168,36 +191,35 @@ export default function Hero() {
       tracking-[-1.5px]
       text-[#042C2C]
     "
-  >
-    Technology That
-    <br />
-    Moves Business
-    <br />
-    Forward
-  </motion.h1>
+          >
+            Technology That
+            <br />
+            Moves Business
+            <br />
+            Forward
+          </motion.h1>
 
+          {/* Sub Heading */}
 
-  {/* Sub Heading */}
-
-  <motion.p
-    initial={{
-      opacity: 0,
-      y: 30,
-    }}
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-    viewport={{
-      once: false,
-      amount: 0.25,
-    }}
-    transition={{
-      duration: 0.7,
-      delay: 0.2,
-      ease: "easeOut",
-    }}
-    className="
+          <motion.p
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: false,
+              amount: 0.25,
+            }}
+            transition={{
+              duration: 0.7,
+              delay: 0.2,
+              ease: "easeOut",
+            }}
+            className="
       mt-8
 
       max-w-[340px]
@@ -208,34 +230,33 @@ export default function Hero() {
       font-medium
       text-[#111111]
     "
-  >
-    Building reliable telecommunications infrastructure and intelligent
-    digital solutions that enable organizations to innovate, scale
-    confidently, and thrive in a connected world.
-  </motion.p>
+          >
+            Building reliable telecommunications infrastructure and intelligent
+            digital solutions that enable organizations to innovate, scale
+            confidently, and thrive in a connected world.
+          </motion.p>
 
+          {/* Buttons */}
 
-  {/* Buttons */}
-
-  <motion.div
-    initial={{
-      opacity: 0,
-      y: 30,
-    }}
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-    viewport={{
-      once: false,
-      amount: 0.25,
-    }}
-    transition={{
-      duration: 0.7,
-      delay: 0.35,
-      ease: "easeOut",
-    }}
-    className="
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: false,
+              amount: 0.25,
+            }}
+            transition={{
+              duration: 0.7,
+              delay: 0.35,
+              ease: "easeOut",
+            }}
+            className="
       mt-10
 
       flex
@@ -248,69 +269,71 @@ export default function Hero() {
 
       px-2
     "
-  >
+          >
+            {/* Contact */}
 
-    {/* Contact */}
+            <a
+              href="mailto:info@triwavedigital.net"
+              className="
+    flex
+    h-[52px]
+    flex-1
+    items-center
+    justify-center
 
-    <button
-      className="
-        h-[52px]
+    rounded-xl
 
-        flex-1
+    bg-[#00796B]
 
-        rounded-xl
+    px-4
 
-        bg-[#00796B]
+    text-sm
+    font-medium
+    text-white
 
-        px-4
+    transition-all
+    duration-300
 
-        text-sm
-        font-medium
-        text-white
+    hover:bg-[#00685C]
+  "
+            >
+              Contact Us
+            </a>
 
-        transition-all
-        duration-300
+            {/* Explore */}
 
-        hover:bg-[#00685C]
-      "
-    >
-      Contact Us
-    </button>
+            <Link
+              href="#services"
+              className="
+    flex
+    h-[52px]
+    flex-1
+    items-center
+    justify-center
 
+    rounded-xl
 
-    {/* Explore */}
+    border
+    border-[#D8D8D8]
 
-    <button
-      className="
-        h-[52px]
+    bg-white
 
-        flex-1
+    px-4
 
-        rounded-xl
+    text-sm
+    font-medium
+    text-[#042C2C]
 
-        border
-        border-[#D8D8D8]
+    transition-all
+    duration-300
 
-        bg-white
-
-        px-4
-
-        text-sm
-        font-medium
-        text-[#042C2C]
-
-        transition-all
-        duration-300
-
-        hover:shadow-lg
-      "
-    >
-      Explore Services
-    </button>
-
-  </motion.div>
-
-</div>
+    hover:shadow-lg
+  "
+            >
+              Explore Services
+            </Link>
+          </motion.div>
+        </div>
 
         {/* ================= IMAGE ================= */}
 
@@ -335,12 +358,12 @@ export default function Hero() {
           className="mt-24"
         >
           <Image
-  src="/images/hero/hero-meeting-imagex.jpg"
-  alt="Triwave Digital Meeting"
-  width={1400}
-  height={850}
-  priority
-  className="
+            src="/images/hero/hero-meeting-imagex.jpg"
+            alt="Triwave Digital Meeting"
+            width={1400}
+            height={850}
+            priority
+            className="
     w-full
 
     max-h-[420px]
@@ -351,7 +374,7 @@ export default function Hero() {
     lg:max-h-none
     lg:object-cover
   "
-/>
+          />
         </motion.div>
       </Container>
     </section>

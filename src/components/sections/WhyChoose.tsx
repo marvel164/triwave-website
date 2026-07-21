@@ -8,7 +8,7 @@ import Container from "../ui/Container";
 
 export default function WhyChoose() {
   return (
-    <section id="why-choose" className="bg-[#F6FBFB] py-16 sm:py-20 lg:py-32">
+    <section id="why-choose" className="bg-[#e7f6f3] py-16 sm:py-20 lg:py-32">
       <Container>
         <div className="relative lg:min-h-[920px]">
           {/* ================= MOBILE IMAGE GRID ================= */}

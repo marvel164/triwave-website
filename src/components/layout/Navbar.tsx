@@ -39,7 +39,7 @@ export default function Navbar() {
     <>
       <header
         style={{
-          backgroundColor: scrolled ? "rgba(255,255,255,0.75)" : "#F6FBFB",
+          backgroundColor: scrolled ? "rgba(255,255,255,0.75)" : "#e7f6f3",
           backdropFilter: scrolled ? "blur(18px)" : "blur(0px)",
           height: scrolled ? "86px" : "102px",
           boxShadow: scrolled

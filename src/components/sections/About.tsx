@@ -7,7 +7,7 @@ import Container from "../ui/Container";
 
 export default function About() {
   return (
-    <section id="about" className="bg-white py-16 sm:py-20 lg:py-28">
+    <section id="about" className="bg-[#e7f6f3] py-16 sm:py-20 lg:py-28">
       <Container>
         <div
           className="
