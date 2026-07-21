@@ -1,6 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+
 import Container from "../ui/Container";
 
 const reasons = [
@@ -25,177 +31,200 @@ const reasons = [
 ];
 
 export default function WhyUs() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
+
   return (
     <section
+      ref={sectionRef}
       id="why-us"
-      className="bg-[#071B1B] py-16 sm:py-20 lg:py-28"
+      className="
+        relative
+        h-[260vh]
+        bg-[#071B1B]
+      "
     >
-      <Container>
-        <div
-          className="
-            grid
-            grid-cols-1
-            gap-6
+      <div
+        className="
+          sticky
+          top-0
+          flex
+          h-screen
+          items-center
+          overflow-hidden
+        "
+      >
+        <Container>
+          <div
+            className="
+              relative
+              mx-auto
+              h-[520px]
+              w-full
+              max-w-[900px]
+            "
+          >
+                        {reasons.map((reason, index) => {
+              const start = index * 0.22;
+              const end = start + 0.22;
 
-            sm:grid-cols-2
-            sm:gap-8
+              const y = useTransform(
+                scrollYProgress,
+                [start, end],
+                [220, 0]
+              );
 
-            lg:grid-cols-3
-            lg:gap-10
-          "
-        >
-          {reasons.map((reason, index) => (
-            <motion.div
-              key={reason.title}
-              initial={{
-                opacity: 0,
-                y: 60,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{
-                once: false,
-                amount: 0.25,
-              }}
-              transition={{
-                duration: 0.7,
-                delay: index * 0.15,
-                ease: "easeOut",
-              }}
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
-              className="
-                min-h-[340px]
+              const scale = useTransform(
+                scrollYProgress,
+                [start, end],
+                [0.9, 1]
+              );
 
-                cursor-pointer
-                bg-[#F6B500]
+              const opacity = useTransform(
+                scrollYProgress,
+                [start, end],
+                [0, 1]
+              );
 
-                p-7
+              return (
+                <motion.div
+                  key={reason.title}
+                  style={{
+                    y,
+                    scale,
+                    opacity,
+                    zIndex: index + 1,
+                  }}
+                  className="
+                    absolute
+                    inset-0
 
-                shadow-xl
-                transition-shadow
-                duration-300
+                    bg-[#F6B500]
 
-                sm:min-h-[370px]
-                sm:p-8
+                    p-7
 
-                lg:min-h-[430px]
-                lg:p-10
-              "
-            >
-              {/* Number */}
+                    shadow-2xl
 
-              <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: false,
-                  amount: 0.4,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.15,
-                }}
-                className="
-                  text-[28px]
-                  font-semibold
-                  text-white
+                    sm:p-8
 
-                  sm:text-[34px]
+                    lg:p-10
+                  "
+                >
+                  {/* Number */}
 
-                  lg:text-4xl
-                "
-              >
-                {reason.number}
-              </motion.p>
+                  <motion.p
+                    initial={{
+                      opacity: 0,
+                      y: 20,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: false,
+                      amount: 0.4,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.15,
+                    }}
+                    className="
+                      text-[28px]
+                      font-semibold
+                      text-white
 
-              {/* Title */}
+                      sm:text-[34px]
 
-              <motion.h3
-                initial={{
-                  opacity: 0,
-                  y: 25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: false,
-                  amount: 0.4,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.25,
-                }}
-                className="
-                  mt-12
+                      lg:text-4xl
+                    "
+                  >
+                    {reason.number}
+                  </motion.p>
 
-                  text-[28px]
-                  font-bold
-                  leading-tight
-                  text-white
+                  {/* Title */}
 
-                  sm:mt-16
-                  sm:text-[32px]
+                  <motion.h3
+                    initial={{
+                      opacity: 0,
+                      y: 25,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: false,
+                      amount: 0.4,
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.25,
+                    }}
+                    className="
+                      mt-12
 
-                  lg:mt-28
-                  lg:text-4xl
-                "
-              >
-                {reason.title}
-              </motion.h3>
+                      text-[28px]
+                      font-bold
+                      leading-tight
+                      text-white
 
-              {/* Description */}
+                      sm:mt-16
+                      sm:text-[32px]
 
-              <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: false,
-                  amount: 0.4,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.35,
-                }}
-                className="
-                  mt-5
+                      lg:mt-28
+                      lg:text-4xl
+                    "
+                  >
+                    {reason.title}
+                  </motion.h3>
 
-                  text-[15px]
-                  leading-7
-                  text-white/90
+                  {/* Description */}
 
-                  sm:text-[16px]
-                  sm:leading-8
+                  <motion.p
+                    initial={{
+                      opacity: 0,
+                      y: 25,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: false,
+                      amount: 0.4,
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.35,
+                    }}
+                    className="
+                      mt-5
 
-                  lg:mt-8
-                  lg:text-lg
-                  lg:leading-9
-                "
-              >
-                {reason.description}
-              </motion.p>
-            </motion.div>
-          ))}
-        </div>
-      </Container>
+                      text-[15px]
+                      leading-7
+                      text-white/90
+
+                      sm:text-[16px]
+                      sm:leading-8
+
+                      lg:mt-8
+                      lg:text-lg
+                      lg:leading-9
+                    "
+                  >
+                    {reason.description}
+                  </motion.p>
+                </motion.div>
+              );
+            })}
+                      </div>
+        </Container>
+      </div>
     </section>
   );
 }

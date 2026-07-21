@@ -335,17 +335,23 @@ export default function Hero() {
           className="mt-24"
         >
           <Image
-            src="/images/hero/hero-meeting-imagex.jpg"
-            alt="Triwave Digital Meeting"
-            width={1400}
-            height={850}
-            priority
-            className="
-              w-full
-              rounded-none
-              object-cover
-            "
-          />
+  src="/images/hero/hero-meeting-imagex.jpg"
+  alt="Triwave Digital Meeting"
+  width={1400}
+  height={850}
+  priority
+  className="
+    w-full
+
+    max-h-[420px]
+
+    h-auto
+    object-contain
+
+    lg:max-h-none
+    lg:object-cover
+  "
+/>
         </motion.div>
       </Container>
     </section>

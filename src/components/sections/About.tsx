@@ -101,24 +101,24 @@ export default function About() {
             </motion.h2>
 
             <motion.p
-  initial={{
-    opacity: 0,
-    y: 30,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-  }}
-  viewport={{
-    once: false,
-    amount: 0.3,
-  }}
-  transition={{
-    duration: 0.7,
-    delay: 0.15,
-    ease: "easeOut",
-  }}
-  className="
+              initial={{
+                opacity: 0,
+                y: 30,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: false,
+                amount: 0.3,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.15,
+                ease: "easeOut",
+              }}
+              className="
     mt-6
 
     text-center
@@ -135,56 +135,18 @@ export default function About() {
     lg:text-[21px]
     lg:leading-[46px]
   "
->
+            >
               Triwave Digital Technologies Ltd is an innovative technology
               company committed to helping businesses harness the power of
               technology to connect, innovate, and grow. We deliver end-to-end
               solutions across telecommunications, software development, cloud
               services, artificial intelligence, fintech, and digital
               transformation, enabling organizations to operate more efficiently
-              and create exceptional digital experiences.
-            </motion.p>
-
-            <motion.p
-  initial={{
-    opacity: 0,
-    y: 30,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-  }}
-  viewport={{
-    once: false,
-    amount: 0.3,
-  }}
-  transition={{
-    duration: 0.7,
-    delay: 0.3,
-    ease: "easeOut",
-  }}
-  className="
-    mt-5
-
-    text-center
-
-    text-[16px]
-    leading-8
-
-    text-[#424242]
-
-    sm:text-[18px]
-
-    lg:mt-8
-    lg:text-left
-    lg:text-[21px]
-    lg:leading-[46px]
-  "
->
-              Driven by innovation and a passion for solving real business
-              challenges, we work closely with our clients to design scalable,
-              secure, and future-ready solutions that support long-term growth
-              in an increasingly connected world.
+              and create exceptional digital experiences. Driven by innovation
+              and a passion for solving real business challenges, we work
+              closely with our clients to design scalable, secure, and
+              future-ready solutions that support long-term growth in an
+              increasingly connected world.
             </motion.p>
           </motion.div>
         </div>

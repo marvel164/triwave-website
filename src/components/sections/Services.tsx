@@ -11,7 +11,6 @@ export default function Services() {
       id="services"
       className="
         bg-white
-
         py-16
         sm:py-20
         md:py-24
@@ -37,93 +36,63 @@ export default function Services() {
             ease: "easeOut",
           }}
           className="
-            mx-auto
-            text-center
+            grid
+            gap-10
 
-            lg:mx-0
-            lg:text-left
+            lg:grid-cols-2
+            lg:items-center
+            lg:gap-20
           "
         >
-          {/* Section Label */}
+          {/* Left */}
 
-          <p
-            className="
-              text-xs
-              font-semibold
-              uppercase
-              tracking-[0.22em]
-              text-[#00796B]
+          <div>
+            <h2
+              className="
+                max-w-[520px]
 
-              sm:text-sm
+                text-[36px]
+                font-bold
+                leading-[1.15]
+                tracking-[-1px]
+                text-[#042C2C]
 
-              lg:text-sm
-            "
-          >
-            Triwave Digital Services
-          </p>
+                sm:text-[48px]
 
-          {/* Heading */}
+                md:text-[56px]
 
-          <h2
-            className="
-              mx-auto
-              mt-4
+                lg:text-[64px]
+                lg:tracking-[-2px]
+              "
+            >
+              Triwave Digital
+              <br />
+              Services
+            </h2>
+          </div>
 
-              max-w-[340px]
+          {/* Right */}
 
-              text-[32px]
-              leading-[1.2]
-              font-bold
-              tracking-[-1px]
-              text-[#042C2C]
+          <div>
+            <p
+              className="
+                text-[16px]
+                leading-8
+                text-[#5B6464]
 
-              sm:max-w-[560px]
-              sm:text-[42px]
+                sm:text-[18px]
+                sm:leading-9
 
-              md:max-w-[650px]
-              md:text-[48px]
-
-              lg:mx-0
-              lg:mt-5
-              lg:max-w-[760px]
-              lg:text-[56px]
-              lg:leading-[1.15]
-              lg:tracking-[-2px]
-            "
-          >
-            Innovative technology services built for modern businesses.
-          </h2>
-
-          {/* Description */}
-
-          <p
-            className="
-              mx-auto
-              mt-6
-
-              max-w-[340px]
-
-              text-[16px]
-              leading-8
-              text-[#5B6464]
-
-              sm:mt-7
-              sm:max-w-[620px]
-              sm:text-[18px]
-              sm:leading-9
-
-              lg:mx-0
-              lg:mt-8
-              lg:max-w-[760px]
-              lg:text-[20px]
-              lg:leading-[38px]
-            "
-          >
-            We provide end-to-end digital solutions that help organizations
-            innovate, improve operational efficiency, strengthen customer
-            engagement, and accelerate business growth across multiple
-            industries.
-          </p>
+                lg:text-[20px]
+                lg:leading-[38px]
+              "
+            >
+              Helping organizations transform the way they communicate, operate,
+              and grow through innovative telecommunications, software
+              engineering, cloud technologies, artificial intelligence, and
+              digital solutions.
+            </p>
+          </div>
         </motion.div>
 
         {/* Slider */}

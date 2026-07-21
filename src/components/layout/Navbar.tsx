@@ -24,10 +24,14 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+    if (menuOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "";
+    }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "";
     };
   }, [menuOpen]);
 
@@ -47,7 +51,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 z-50 w-full border-b border-[#E8E8E8]"
       >
         <Container className="flex h-full items-center justify-between">
-          {/* ================= LOGO ================= */}
+          {/* LOGO */}
 
           <Link href="/">
             <motion.div
@@ -80,28 +84,20 @@ export default function Navbar() {
             </motion.div>
           </Link>
 
-          {/* ================= DESKTOP NAV ================= */}
+          {/* DESKTOP NAV */}
 
           <nav className="hidden lg:flex items-center gap-10">
             {NAV_LINKS.map((link, index) => (
               <motion.div
                 key={link.label}
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
                   delay: 0.2 + index * 0.12,
                   ease: "easeOut",
                 }}
-                whileHover={{
-                  y: -2,
-                }}
+                whileHover={{ y: -2 }}
               >
                 <Link
                   href={link.href}
@@ -138,18 +134,12 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* ================= DESKTOP CTA ================= */}
+          {/* DESKTOP CTA */}
 
           <motion.a
             href="mailto:info@triwavedigital.net"
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.6,
               delay: 0.8,
@@ -184,7 +174,7 @@ export default function Navbar() {
             Contact Us
           </motion.a>
 
-          {/* ================= MOBILE MENU BUTTON ================= */}
+          {/* MOBILE BUTTON */}
 
           <motion.button
             whileTap={{ scale: 0.95 }}
@@ -207,28 +197,30 @@ export default function Navbar() {
         </Container>
       </header>
 
-      {/* ================= MOBILE OVERLAY ================= */}
-
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {menuOpen && (
           <motion.div
+            key="mobile-menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[999] bg-[#F6FBFB]"
+            transition={{
+              duration: 0.35,
+              ease: "easeInOut",
+            }}
+            className="fixed inset-0 z-[999] overflow-hidden bg-[#F6FBFB]"
           >
             <motion.div
-              initial={{ y: -40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -40, opacity: 0 }}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
               transition={{
-                duration: 0.4,
-                ease: "easeInOut",
+                duration: 0.55,
+                ease: [0.22, 1, 0.36, 1],
               }}
-              className="flex h-full flex-col"
+              className="flex h-full flex-col bg-[#F6FBFB]"
             >
-              {/* ================= TOP BAR ================= */}
+                            {/* ================= TOP BAR ================= */}
 
               <div className="flex items-center justify-between border-b border-[#E8E8E8] px-6 py-6">
                 <Image
@@ -240,66 +232,96 @@ export default function Navbar() {
                 />
 
                 <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                    rotate: 90,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
                   onClick={() => setMenuOpen(false)}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-[#00796B] text-white"
+                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ rotate: 90, scale: 1.05 }}
+                  transition={{
+                    duration: 0.35,
+                    ease: "easeInOut",
+                  }}
+                  className="
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-[#00796B]
+                    text-white
+                  "
                 >
                   <X size={22} />
                 </motion.button>
               </div>
 
-              {/* ================= MENU LINKS ================= */}
+              {/* ================= MENU ================= */}
 
-              <div className="flex flex-1 flex-col items-center justify-center gap-10">
-                {NAV_LINKS.map((link, index) => (
-                  <motion.div
-                    key={link.label}
-                    initial={{
-                      opacity: 0,
-                      y: 20,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      delay: index * 0.08,
-                      duration: 0.4,
-                    }}
-                  >
-                    <Link
-                      href={link.href}
-                      onClick={() => setMenuOpen(false)}
-                      className="text-3xl font-semibold text-[#042C2C] transition-colors hover:text-[#00796B]"
+              <div className="flex flex-1 flex-col justify-center px-8">
+
+                <div className="space-y-7">
+
+                  {NAV_LINKS.map((link, index) => (
+                    <motion.div
+                      key={link.label}
+                      initial={{
+                        opacity: 0,
+                        y: 40,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                        y: 40,
+                      }}
+                      transition={{
+                        duration: 0.45,
+                        delay: index * 0.08,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
                     >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={link.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="
+                          group
+                          inline-flex
+                          text-[38px]
+                          font-bold
+                          tracking-[-1.5px]
+                          text-[#042C2C]
+                          transition-colors
+                          duration-300
+                          hover:text-[#00796B]
+                        "
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+
+                </div>
 
                 <motion.a
                   href="mailto:info@triwavedigital.net"
                   onClick={() => setMenuOpen(false)}
                   initial={{
                     opacity: 0,
-                    y: 20,
+                    y: 35,
                   }}
                   animate={{
                     opacity: 1,
                     y: 0,
                   }}
+                  exit={{
+                    opacity: 0,
+                    y: 35,
+                  }}
                   transition={{
-                    delay: 0.45,
-                    duration: 0.4,
+                    duration: 0.5,
+                    delay: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
                   whileHover={{
                     scale: 1.03,
@@ -307,12 +329,35 @@ export default function Navbar() {
                   whileTap={{
                     scale: 0.98,
                   }}
-                  className="mt-10 inline-flex items-center justify-center rounded-xl bg-[#00796B] px-10 py-4 text-base font-medium text-white shadow-lg"
+                  className="
+                    mt-16
+
+                    inline-flex
+                    w-fit
+
+                    items-center
+                    justify-center
+
+                    rounded-xl
+
+                    bg-[#00796B]
+
+                    px-10
+                    py-4
+
+                    text-base
+                    font-medium
+
+                    text-white
+
+                    shadow-lg
+                  "
                 >
                   Contact Us
                 </motion.a>
+
               </div>
-            </motion.div>
+                          </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

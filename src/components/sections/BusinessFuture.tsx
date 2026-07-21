@@ -36,6 +36,7 @@ export default function BusinessFuture() {
               transition={{
                 duration: 0.8,
               }}
+              className="lg:pl-8 xl:pl-12"
             >
               {/* Heading */}
 
@@ -170,20 +171,20 @@ export default function BusinessFuture() {
           {/* Mobile & Tablet */}
 
           <div className="mt-8 flex justify-center lg:hidden">
-  <Image
-    src="/images/future/business-future.png"
-    alt="Business Future"
-    width={900}
-    height={700}
-    priority
-    className="
-      w-full
-      max-w-[700px]
-      h-auto
-      rounded-xl
-    "
-  />
-</div>
+            <Image
+              src="/images/future/business-future.png"
+              alt="Business Future"
+              width={900}
+              height={700}
+              priority
+              className="
+                h-auto
+                w-full
+                max-w-[700px]
+                rounded-xl
+              "
+            />
+          </div>
 
           {/* Desktop */}
 

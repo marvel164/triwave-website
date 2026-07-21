@@ -7,10 +7,10 @@ import Container from "../ui/Container";
 
 import {
   FaInstagram,
-  FaFacebookF,
+  FaThreads,
   FaXTwitter,
-  FaLinkedinIn,
   FaTiktok,
+  FaLinkedinIn,
 } from "react-icons/fa6";
 
 const quickLinks = [
@@ -34,24 +34,29 @@ const quickLinks = [
 
 const socials = [
   {
+    name: "Instagram",
     icon: FaInstagram,
-    href: "#",
+    href: "https://www.instagram.com/triwavedigitalnet?igsh=aDM5ZWdtbnozMmx6&utm_source=qr",
   },
   {
-    icon: FaFacebookF,
-    href: "#",
+    name: "Threads",
+    icon: FaThreads,
+    href: "https://www.threads.com/@triwavedigitalnet?igshid=NTc4MTIwNjQ2YQ==",
   },
   {
+    name: "X",
     icon: FaXTwitter,
-    href: "#",
+    href: "https://x.com/triwave_digital?s=11",
   },
   {
+    name: "TikTok",
     icon: FaTiktok,
-    href: "#",
+    href: "https://www.tiktok.com/@triwavedigitalnet?_r=1&_d=el3aek2mjg0glg&sec_uid=MS4wLjABAAAAQVOgmjzCK2K6hwxN_kcaG5EUwUPOuUQ9MnRadW70MbePSuQg3AXs7Cq_jMG-z4vW&share_author_id=7657462230791996437&sharer_language=en&source=h5_m",
   },
   {
+    name: "LinkedIn",
     icon: FaLinkedinIn,
-    href: "#",
+    href: "https://www.linkedin.com/company/triwave-digital/",
   },
 ];
 
@@ -135,25 +140,28 @@ export default function Footer() {
                     <motion.a
                       key={index}
                       href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={item.name}
                       whileHover={{
-                        y: -5,
+                        y: -6,
                         scale: 1.08,
                       }}
                       whileTap={{
                         scale: 0.95,
                       }}
                       className="
-                        flex
-                        h-10
-                        w-10
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-[#00796B]
-                        text-white
-                      "
+    flex
+    h-12
+    w-12
+    items-center
+    justify-center
+    rounded-full
+    bg-[#00796B]
+    text-white
+  "
                     >
-                      <Icon size={18} />
+                      <Icon size={20} />
                     </motion.a>
                   );
                 })}
@@ -239,12 +247,13 @@ export default function Footer() {
               transition={{ duration: 0.5, delay: 0.1 }}
               href="mailto:info@triwavedigital.net"
               className="
-                mt-4
-                block
-                text-xl
-                font-semibold
-                text-[#042C2C]
-              "
+  mt-4
+  block
+  break-all
+  text-xl
+  font-semibold
+  text-[#042C2C]
+"
             >
               info@triwavedigital.net
             </motion.a>
@@ -273,6 +282,9 @@ export default function Footer() {
                   <motion.a
                     key={index}
                     href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.name}
                     whileHover={{
                       y: -6,
                       scale: 1.08,
@@ -281,15 +293,15 @@ export default function Footer() {
                       scale: 0.95,
                     }}
                     className="
-                      flex
-                      h-12
-                      w-12
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#00796B]
-                      text-white
-                    "
+    flex
+    h-12
+    w-12
+    items-center
+    justify-center
+    rounded-full
+    bg-[#00796B]
+    text-white
+  "
                   >
                     <Icon size={20} />
                   </motion.a>
@@ -419,7 +431,7 @@ export default function Footer() {
             mt-16
             border-t
             border-[#E6E6E6]
-            pt-8
+            pt-2
             text-center
             text-sm
             text-[#777]

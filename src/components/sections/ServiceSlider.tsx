@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, CircleCheckBig } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 
 import { services } from "@/data/services";
 
@@ -41,7 +41,7 @@ export default function ServiceSlider() {
   };
 
   return (
-    <section className="mt-10 sm:mt-14 lg:mt-20">
+    <section className="overflow-hidden mt-10 sm:mt-14 lg:mt-20">
       {/* Top Controls */}
 
       <motion.div
@@ -229,7 +229,18 @@ export default function ServiceSlider() {
                   }}
                   className="flex items-center gap-4"
                 >
-                  <CircleCheckBig className="h-5 w-5 shrink-0 text-[#00796B] lg:h-[22px] lg:w-[22px]" />
+                  <Sparkles
+                    className="
+    h-5
+    w-5
+    shrink-0
+    text-[#009966]
+
+    lg:h-[22px]
+    lg:w-[22px]
+  "
+                    strokeWidth={2.4}
+                  />
 
                   <p
                     className="
@@ -284,14 +295,11 @@ export default function ServiceSlider() {
 
   h-[260px]
   sm:h-[380px]
-
   lg:h-[720px]
 
   rounded-xl
 
   object-contain
-
-  lg:object-cover
 "
             />
           </motion.div>
