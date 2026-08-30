@@ -220,7 +220,7 @@ export default function Navbar() {
               }}
               className="flex h-full flex-col bg-[#F6FBFB]"
             >
-                            {/* ================= TOP BAR ================= */}
+              {/* ================= TOP BAR ================= */}
 
               <div className="flex items-center justify-between border-b border-[#E8E8E8] px-6 py-6">
                 <Image
@@ -257,9 +257,7 @@ export default function Navbar() {
               {/* ================= MENU ================= */}
 
               <div className="flex flex-1 flex-col justify-center px-8">
-
                 <div className="space-y-7">
-
                   {NAV_LINKS.map((link, index) => (
                     <motion.div
                       key={link.label}
@@ -300,7 +298,6 @@ export default function Navbar() {
                       </Link>
                     </motion.div>
                   ))}
-
                 </div>
 
                 <motion.a
@@ -331,33 +328,24 @@ export default function Navbar() {
                   }}
                   className="
                     mt-16
-
                     inline-flex
                     w-fit
-
                     items-center
                     justify-center
-
                     rounded-xl
-
                     bg-[#00796B]
-
                     px-10
                     py-4
-
                     text-base
                     font-medium
-
                     text-white
-
                     shadow-lg
                   "
                 >
                   Contact Us
                 </motion.a>
-
               </div>
-                          </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
