@@ -5,7 +5,7 @@ export const NAV_LINKS = [
   },
   {
     label: "Our Services",
-    href: "/#services",
+    href: "/services",
   },
   {
     label: "About Us",
