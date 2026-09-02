@@ -9,7 +9,7 @@ export const NAV_LINKS = [
   },
   {
     label: "About Us",
-    href: "/#about",
+    href: "/about",
   },
   {
     label: "Contact Us",
